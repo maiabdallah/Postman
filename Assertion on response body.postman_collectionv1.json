@@ -1,0 +1,99 @@
+{
+	"info": {
+		"_postman_id": "e2ed8789-c118-4449-8e7f-05186f68d072",
+		"name": "Assertion on response body",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Task1",
+			"item": [
+				{
+					"name": "https://data.cityofnewyork.us/data.json",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Task1: \r",
+									"// Get the JSONPath for this value \"open market order (omo) charges\"\r",
+									"//Path : dataset-->1215-->title\r",
+									"// and try it on postman using console.log \r",
+									"console.log(pm.response.json().dataset[1215].title)\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://data.cityofnewyork.us/data.json",
+							"protocol": "https",
+							"host": [
+								"data",
+								"cityofnewyork",
+								"us"
+							],
+							"path": [
+								"data.json"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task2",
+			"item": [
+				{
+					"name": "https://data.cityofnewyork.us/data.json",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Task2: \r",
+									"// Get JSONPath for this value\r",
+									"// \"https://project-open-data.cio.gov/v1.1/schema/catalog.jsonld\"\r",
+									"// Note: The purpose of this task is to search how you could handle parameters starts with speical character like @context \r",
+									"\r",
+									"console.log(pm.response.json()['@context'])\r",
+									"\r",
+									"  pm.test(\"Get jsonPath for context\",function(){\r",
+									"      pm.expect(pm.response.json()['@context']).to.eql(\"https://project-open-data.cio.gov/v1.1/schema/catalog.jsonld\");\r",
+									"  });\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://data.cityofnewyork.us/data.json",
+							"protocol": "https",
+							"host": [
+								"data",
+								"cityofnewyork",
+								"us"
+							],
+							"path": [
+								"data.json"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
